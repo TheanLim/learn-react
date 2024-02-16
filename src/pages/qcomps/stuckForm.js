@@ -1,20 +1,22 @@
 import { useState } from 'react';
 
 export default function Form() {
-  let firstName = '';
-  let lastName = '';
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
 
-  function handleFirstNameChange(e) {
-    firstName = e.target.value;
-  }
+  // function handleFirstNameChange(e) {
+  //   firstName = e.target.value;
+  // }
 
-  function handleLastNameChange(e) {
-    lastName = e.target.value;
-  }
+  // function handleLastNameChange(e) {
+  //   lastName = e.target.value;
+  // }
 
   function handleReset() {
-    firstName = '';
-    lastName = '';
+    // firstName = '';
+    // lastName = '';
+    setFirstName('');
+    setLastName('');
   }
 
   return (
@@ -22,12 +24,12 @@ export default function Form() {
       <input
         placeholder="First name"
         value={firstName}
-        onChange={handleFirstNameChange}
+        onChange={e => setFirstName(e.target.value)}
       />
       <input
         placeholder="Last name"
         value={lastName}
-        onChange={handleLastNameChange}
+        onChange={e => setLastName(e.target.value)}
       />
       <h1>Hi, {firstName} {lastName}</h1>
       <button onClick={handleReset}>Reset</button>
